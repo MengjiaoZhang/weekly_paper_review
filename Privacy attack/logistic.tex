@@ -1,0 +1,323 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsmath,amsthm,amsfonts}
+\usepackage{latexsym,graphicx}
+\usepackage{fullpage,color}
+\usepackage{url}
+\usepackage[pdftex,bookmarks,colorlinks=true,citecolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{graphicx,subfigure}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{color}
+
+% \colorlet{shadecolor}{orange!15}
+\colorlet{NextBlue}{orange!15!green!50!blue!75}
+
+\numberwithin{equation}{section}
+
+\pagestyle{plain}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\topmargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.5in}
+
+\newtheorem{fact}{Fact}[section]
+\newtheorem{question}{Question}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{assumption}[lemma]{Assumption}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{prop}[lemma]{Proposition}
+\newtheorem{claim}{Claim}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{prob}{Problem}[section]
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{property}{Property}[section]
+
+\def\A{{\bf A}}
+\def\a{{\bf a}}
+\def\B{{\bf B}}
+\def\bb{{\bf b}}
+\def\C{{\bf C}}
+\def\c{{\bf c}}
+\def\D{{\bf D}}
+\def\d{{\bf d}}
+\def\E{{\bf E}}
+\def\e{{\bf e}}
+\def\F{{\bf F}}
+\def\f{{\bf f}}
+\def\g{{\bf g}}
+\def\h{{\bf h}}
+\def\G{{\bf G}}
+\def\H{{\bf H}}
+\def\I{{\bf I}}
+\def\K{{\bf K}}
+\def\k{{\bf k}}
+\def\LL{{\bf L}}
+\def\M{{\bf M}}
+\def\m{{\bf m}}
+\def\N{{\bf N}}
+\def\n{{\bf n}}
+\def\PP{{\bf P}}
+\def\pp{{\bf p}}
+\def\Q{{\bf Q}}
+\def\q{{\bf q}}
+\def\R{{\bf R}}
+\def\rr{{\bf r}}
+\def\S{{\bf S}}
+\def\s{{\bf s}}
+\def\T{{\bf T}}
+\def\tt{{\bf t}}
+\def\U{{\bf U}}
+\def\u{{\bf u}}
+\def\V{{\bf V}}
+\def\v{{\bf v}}
+\def\W{{\bf W}}
+\def\w{{\bf w}}
+\def\X{{\bf X}}
+\def\x{{\bf x}}
+\def\Y{{\bf Y}}
+\def\y{{\bf y}}
+\def\Z{{\bf Z}}
+\def\z{{\bf z}}
+\def\0{{\bf 0}}
+\def\1{{\bf 1}}
+
+
+
+\def\AM{{\mathcal A}}
+\def\CM{{\mathcal C}}
+\def\DM{{\mathcal D}}
+\def\EM{{\mathcal E}}
+\def\GM{{\mathcal G}}
+\def\FM{{\mathcal F}}
+\def\IM{{\mathcal I}}
+\def\JM{{\mathcal J}}
+\def\KM{{\mathcal K}}
+\def\LM{{\mathcal L}}
+\def\NM{{\mathcal N}}
+\def\OM{{\mathcal O}}
+\def\PM{{\mathcal P}}
+\def\SM{{\mathcal S}}
+\def\TM{{\mathcal T}}
+\def\UM{{\mathcal U}}
+\def\VM{{\mathcal V}}
+\def\WM{{\mathcal W}}
+\def\XM{{\mathcal X}}
+\def\YM{{\mathcal Y}}
+\def\RB{{\mathbb R}}
+\def\RBmn{{\RB^{m\times n}}}
+\def\EB{{\mathbb E}}
+\def\PB{{\mathbb P}}
+
+\def\TX{\tilde{\bf X}}
+\def\TA{\tilde{\bf A}}
+\def\tx{\tilde{\bf x}}
+\def\ty{\tilde{\bf y}}
+\def\TZ{\tilde{\bf Z}}
+\def\tz{\tilde{\bf z}}
+\def\hd{\hat{d}}
+\def\HD{\hat{\bf D}}
+\def\hx{\hat{\bf x}}
+\def\nysA{{\tilde{\A}_c^{\textrm{nys}}}}
+
+\def\alp{\mbox{\boldmath$\alpha$\unboldmath}}
+\def\bet{\mbox{\boldmath$\beta$\unboldmath}}
+\def\epsi{\mbox{\boldmath$\epsilon$\unboldmath}}
+\def\etab{\mbox{\boldmath$\eta$\unboldmath}}
+\def\ph{\mbox{\boldmath$\phi$\unboldmath}}
+\def\pii{\mbox{\boldmath$\pi$\unboldmath}}
+\def\Ph{\mbox{\boldmath$\Phi$\unboldmath}}
+\def\Ps{\mbox{\boldmath$\Psi$\unboldmath}}
+\def\ps{\mbox{\boldmath$\psi$\unboldmath}}
+\def\tha{\mbox{\boldmath$\theta$\unboldmath}}
+\def\Tha{\mbox{\boldmath$\Theta$\unboldmath}}
+\def\muu{\mbox{\boldmath$\mu$\unboldmath}}
+\def\Si{\mbox{\boldmath$\Sigma$\unboldmath}}
+\def\si{\mbox{\boldmath$\sigma$\unboldmath}}
+\def\Gam{\mbox{\boldmath$\Gamma$\unboldmath}}
+\def\Lam{\mbox{\boldmath$\Lambda$\unboldmath}}
+\def\De{\mbox{\boldmath$\Delta$\unboldmath}}
+\def\Ome{\mbox{\boldmath$\Omega$\unboldmath}}
+\def\Pii{\mbox{\boldmath$\Pi$\unboldmath}}
+\def\varepsi{\mbox{\boldmath$\varepsilon$\unboldmath}}
+\newcommand{\ti}[1]{\tilde{#1}}
+\def\Ncal{\mathcal{N}}
+\def\argmax{\mathop{\rm argmax}}
+\def\argmin{\mathop{\rm argmin}}
+
+\def\ALG{{\AM_{\textrm{col}}}}
+
+\def\mean{\mathsf{mean}}
+\def\std{\mathsf{std}}
+\def\bias{\mathsf{bias}}
+\def\var{\mathsf{var}}
+\def\sgn{\mathsf{sgn}}
+\def\tr{\mathsf{tr}}
+\def\rk{\mathrm{rank}}
+\def\nnz{\mathsf{nnz}}
+\def\poly{\mathrm{poly}}
+\def\diag{\mathsf{diag}}
+\def\Diag{\mathsf{Diag}}
+\def\const{\mathrm{Const}}
+\def\st{\mathsf{s.t.}}
+\def\vect{\mathsf{vec}}
+\def\sech{\mathrm{sech}}
+\def\sigmoid{\mathsf{sigmoid}}
+
+\newcommand{\red}[1]{{\color{red}#1}}
+
+
+
+\def\argmax{\mathop{\rm argmax}}
+\def\argmin{\mathop{\rm argmin}}
+
+\newenvironment{note}[1]{\medskip\noindent \textbf{#1:}}%
+        {\medskip}
+
+
+\newcommand{\etal}{{\em et al.}\ }
+\newcommand{\assign}{\leftarrow}
+\newcommand{\eps}{\epsilon}
+
+\newcommand{\opt}{\textrm{\sc OPT}}
+\newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+
+
+\lstset{ %
+extendedchars=false,            % Shutdown no-ASCII compatible
+language=Python,                % choose the language of the code
+xleftmargin=1em,
+xrightmargin=1em,
+basicstyle=\footnotesize,    % the size of the fonts that are used for the code
+tabsize=3,                            % sets default tabsize to 3 spaces
+numbers=left,                   % where to put the line-numbers
+numberstyle=\tiny,              % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1 each line
+                                % will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code   %
+keywordstyle=\color[rgb]{0,0,1},                % keywords
+commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments
+stringstyle=\color[rgb]{0.627,0.126,0.941},      % strings
+backgroundcolor=\color{white}, % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                 % adds a frame around the code
+%captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%title=\lstname,                 % show the filename of files included with \lstinputlisting;
+%                                % also try caption instead of title
+mathescape=true,escapechar=?    % escape to latex with ?..?
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%columns=fixed,                  % nice spacing
+%morestring=[m]',                % strings
+%morekeywords={%,...},%          % if you want to add more keywords to the set
+%    break,case,catch,continue,elseif,else,end,for,function,global,%
+%    if,otherwise,persistent,return,switch,try,while,...},%
+}
+
+
+\begin{document}
+
+%\setlength{\fboxrule}{.5mm}\setlength{\fboxsep}{1.2mm}
+%\newlength{\boxlength}\setlength{\boxlength}{\textwidth}
+%\addtolength{\boxlength}{-4mm}
+
+
+\title{Privacy attacks}
+
+\author{\textbf{Mengjiao Zhang} \\ Stevens Institute of technology}
+
+%\date{ }
+
+\maketitle
+
+% \begin{abstract}
+% % This lecture note describes synchronous parallel accelerated gradient descent (AGD) for empirical risk minimization ERM.
+% % We first describe AGD for solving ERM.
+% % We then show how to parallelize AGD; in particular, we assume there is a central parameter server and the data are partitioned among the worker nodes.
+% % We finally use Python to write a simulator that mimics synchronous parallel AGD.
+
+
+% \end{abstract}
+
+
+
+
+\section{Privacy attacks} 
+
+Evasion and poisoning attacks: make the model output an incorrect predicition;
+
+Privacy attacks: to exact sensitive information from the model, such as the underlying data or the model itself.
+
+\section{The data}
+
+Want the model to spot certain patterns in the training data but can also generalize its "learning" to other unseen datasets. The \textbf{generalization} is important.
+
+\colorbox{orange!15}{Membership inference attack}
+
+When the attacker has a data point and wants to know if it belonged to the original dataset.
+
+\colorbox{orange!15}{Data extraction or model inversion}
+
+Given just BlackBox access to a classifier, to reconstruct some of the underlying data. Such attacks try to extract an average representation of each of the classes the model was trained on.
+
+\section{The Model}
+
+Reason to steal it(perform "model extraction"):
+\begin{enumerate}
+    \item the model is valuable
+    \item Want to launch a WhiteBox evasion attack
+\end{enumerate}
+
+\section{Defenses}
+
+\begin{enumerate}
+    \item API hardening
+    \begin{itemize}
+        \item Not expose the API at all
+        \item Expose only hard labels and not the confidence scores
+        \item If you have to expose confidence scores, you could reduce the dimensionality. Eg instead of showing 64\% you could bucket the scores into 3 or 4 buckets and just show “high”
+    \end{itemize}
+    \item data sanitization\\
+    filter the sensitive information
+    \item model hardening
+    \begin{itemize}
+        \item Model choice — eg Bayesian models are more robust than Decision Trees
+        \item Fit control — in general overftting makes it easier to extract data out of your model, so using regularization is a good idea
+        \item Knowledge control — keeping the model and its development restricted to a small group of people will help prevent leaking knowledge useful to the attacker
+    \end{itemize}
+    \item detection\\
+    pattern of queries are likely to be anomalous compared to what your actual users would do
+    \item differential privacy\\
+    it aims to prove that two models differing by exactly 1 sample will produce similar predictions.
+\end{enumerate}
+
+differential privacy: injecting \textbf{noise} (or \textbf{"randomness"}) into the model. The ways could do it:
+
+\begin{itemize}
+    \item Perturb user’s input into a common training pool (eg when a user sends data to a server x\% is replaced with random numbers)
+    \item Perturb the underlying data
+    \item Perturb the parameters of the model (eg inject noise into the parameter update process)
+    \item Perturb the loss function (similar to eg $L_2$ regularization)
+    \item Perturb output during prediction (eg to x\% of users your API sends random noise)
+\end{itemize}
+
+
+\bibliographystyle{plain}
+
+%\markboth{\bibname}{\bibname}
+% \bibliography{bib/decentralized,bib/distributed,bib/system}
+\bibliography{bib/decentralized,bib/distributed,bib/system,bib/poison}
+
+\end{document}
